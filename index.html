@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GiphyBoggle!</title>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Semantic UI CSS and script -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/39ea56fe5e.js" crossorigin="anonymous"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="headerBox">
+            <h1 class="ui blue inverted header">Welcome to GiphyBoggle!</h1>
+        </div>
+
+
+
+    </header>
+    <main>
+        <!--Holds all content in the body area-->
+        <div class="outermost">
+            <div class="ui stackable sixteen column grid">
+
+                <!--Container for the Boggle 4x4 letter grid-->
+                <div class="six wide column boggle-column">
+                    <div class="sixteen wide column gameGridBox">
+                        <div class="ui grid inner-grid-container">
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox0" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox1" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox2" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox3" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox4" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox5" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox6" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox7" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox8" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox9" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox10" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox11" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox12" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox13" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox14" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                            <div class="boggleBox">
+                                <div class="button-container">
+                                    <button id="boggleBox15" class="ui inverted primary button boggleButton"></button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="ui grid">
+                            <div class="sixteen wide column">
+                                <input type="text" class="searchBar" value="" placeholder="Type here..."
+                                    id="search-bar">
+                                <button class="customIcon" data-content="clear" id="clear-btn"><i
+                                        class="fas fa-backspace"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ten wide column during-game hidden">
+                    <div class="sixteen wide column">
+                        <div class="ui grid">
+                            <div class="sixteen wide column scoreSubBox">
+                                <h1 class="ui yellow inverted header">TIME: <span class="time-display">180</span></h1>
+                                <h1 class="ui yellow inverted header">SCORE: <span class="score-display">0</span></h1>
+                                <button class="ui inverted red button end-game-btn">End Game</button>
+                            </div>
+                        </div>
+                        <div class="ui grid">
+                            <div class="sixteen wide column gifBox">
+                                <h1 class="ui blue inverted header">FOUND WORDS BELOW</h1>
+                                    <div class="ui centered grid gifCardStorageBox">
+
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ten wide column preGame rules-container">
+                    <div class="sixteen wide column">
+                        <h1 class="ui yellow inverted header">Giphy Boggle Rules</h1>
+                        <p>
+                            <ul class="ui list rules-list">
+                                <li>You've got <span style="font-weight: bold;">3 minutes</span> to find as many single words as you can from the Boggle grid on the left.
+                                </li>
+                                <li>Words must be a combination of letters that are adjacent to each other.
+                                </li>
+                                <li>You can connect letters up, down or diagonally, but a letter can only be used once in your letter string.</li>
+                                <li>Scoring is easy - 3 letter word = 1 point, 4 letter word = 2 points...</li>
+                                <div class="button-box">
+                                    <button class="ui inverted green button startBtn">Start game!</button>
+                                </div>
+                            </ul>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!-- <footer>
+
+    </footer> -->
+    <div class="ui modal after-game">
+        <div class="header">Thanks for Playing!</div>
+        <div class="content">
+            <p>Your score: <span class="final-score"></span></p>
+            <p>Words guessed: <span class="words-guessed"></span></p>
+            <p>Words not guessed: <span class="words-unguessed"></span></p>
+            <p>Percentage of total words guessed: <span class="percentage-words"></span></p>
+            <p>Words not guessed</p>
+            <div class="scrolling content unguessed-words">
+                <p>Word</p>
+                <p>Another</p>
+                <p>Desert</p>
+                <p>Witch</p>
+                <p>Mountain</p>
+                <p>Campagne</p>
+                <p>Criser</p>
+                <p>Truckfighters</p>
+                <p>Electric</p>
+                <p>Om</p>
+            </div>
+            <div class="btn-container">
+                <button class="ui inverted green button play-again-btn">Play again</button>
+            </div>
+
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
